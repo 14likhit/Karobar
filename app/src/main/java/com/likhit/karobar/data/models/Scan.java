@@ -19,14 +19,14 @@ public class Scan {
     private String color;
 
     @SerializedName("criteria")
-    private List<Criteria> crieteria;
+    private List<Criteria> criteria;
 
-    public Scan(Integer id, String name, String tag, String color, List<Criteria> crieteria) {
+    public Scan(Integer id, String name, String tag, String color, List<Criteria> criteria) {
         this.id = id;
         this.name = name;
         this.tag = tag;
         this.color = color;
-        this.crieteria = crieteria;
+        this.criteria = criteria;
     }
 
     public Integer getId() {
@@ -62,11 +62,11 @@ public class Scan {
     }
 
     public List<Criteria> getCrieteria() {
-        return crieteria;
+        return criteria;
     }
 
-    public void setCrieteria(List<Criteria> crieteria) {
-        this.crieteria = crieteria;
+    public void setCrieteria(List<Criteria> criteria) {
+        this.criteria = criteria;
     }
 
     @Override
