@@ -16,6 +16,7 @@ import com.likhit.karobar.base.BaseFragment;
 import com.likhit.karobar.data.models.VariableDetails;
 import com.likhit.karobar.databinding.FragmentScanDetailsEditBinding;
 import com.likhit.karobar.databinding.FragmentScanDetailsViewBinding;
+import com.likhit.karobar.utils.AppConstants;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -60,11 +61,11 @@ public class ScanDetailsEditFragment extends BaseFragment {
     @Override
     protected void initViews(View view) {
         super.initViews(view);
-        if (var != null && var.getType().equalsIgnoreCase("indicator")) {
+        if (var != null && var.getType().equalsIgnoreCase(AppConstants.VARIABLE_KEY_INDICATOR)) {
             binding.rvScanListView.setVisibility(View.GONE);
             binding.tvScanTitle.setText(var.getStudyType().toUpperCase());
             binding.tvScanSetParameter.setText("Set Parameter: " + var.getParameterName());
-        } else if (var != null && var.getType().equalsIgnoreCase("value")) {
+        } else if (var != null && var.getType().equalsIgnoreCase(AppConstants.VARIABLE_KEY_VALUE)) {
             binding.layoutIndicator.setVisibility(View.GONE);
             adapter = new ScanDetailsEditAdapter(getBaseActivity());
             adapter.setValues(var.getValues());

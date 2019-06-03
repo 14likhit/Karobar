@@ -14,6 +14,7 @@ import com.likhit.karobar.R;
 import com.likhit.karobar.data.models.Scan;
 import com.likhit.karobar.databinding.LayoutScanItemBinding;
 import com.likhit.karobar.ui.scanDetails.ScanDetailsActivity;
+import com.likhit.karobar.utils.AppConstants;
 
 import java.util.List;
 
@@ -48,16 +49,16 @@ public class ScanAdapter extends RecyclerView.Adapter<ScanAdapter.ScanAdapterVie
         scanAdapterViewHolder.binding.tvScanTitle.setText(scan.getName());
         scanAdapterViewHolder.binding.tvScanSubTitle.setText(scan.getTag());
         String color = scan.getColor();
-        if (color.equalsIgnoreCase("red")) {
+        if (color.equalsIgnoreCase(AppConstants.PARAMETER_COLOR_RED)) {
             scanAdapterViewHolder.binding.tvScanSubTitle.setTextColor(Color.RED);
-        } else if (color.equalsIgnoreCase("green")) {
+        } else if (color.equalsIgnoreCase(AppConstants.PARAMETER_COLOR_GREEN)) {
             scanAdapterViewHolder.binding.tvScanSubTitle.setTextColor(Color.GREEN);
         }
         scanAdapterViewHolder.binding.layoutScanItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ScanDetailsActivity.class);
-                intent.putExtra("scan_activity", scan);
+                intent.putExtra(AppConstants.BUNDLE_KEY_SCAN_ACTIVITY, scan);
                 context.startActivity(intent);
             }
         });

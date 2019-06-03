@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.likhit.karobar.base.BaseFragment;
 import com.likhit.karobar.data.models.Scan;
 import com.likhit.karobar.databinding.FragmentScanDetailsViewBinding;
+import com.likhit.karobar.utils.AppConstants;
 
 public class ScanDetailsViewFragment extends BaseFragment {
 
@@ -30,7 +31,7 @@ public class ScanDetailsViewFragment extends BaseFragment {
 
         ScanDetailsViewFragment fragment = new ScanDetailsViewFragment();
         Bundle args = new Bundle();
-        args.putSerializable("scan_item", scanItem);
+        args.putSerializable(AppConstants.BUNDLE_KEY_SCAN_ITEM, scanItem);
         fragment.setArguments(args);
         return fragment;
     }
@@ -39,7 +40,7 @@ public class ScanDetailsViewFragment extends BaseFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            this.scanItem = (Scan) getArguments().getSerializable("scan_item");
+            this.scanItem = (Scan) getArguments().getSerializable(AppConstants.BUNDLE_KEY_SCAN_ITEM);
         }
     }
 
@@ -56,9 +57,9 @@ public class ScanDetailsViewFragment extends BaseFragment {
         binding.tvScanTitle.setText(scanItem.getName());
         binding.tvScanSubTitle.setText(scanItem.getTag());
         String color = scanItem.getColor();
-        if (color.equalsIgnoreCase("red")) {
+        if (color.equalsIgnoreCase(AppConstants.PARAMETER_COLOR_RED)) {
             binding.tvScanSubTitle.setTextColor(Color.RED);
-        } else if (color.equalsIgnoreCase("green")) {
+        } else if (color.equalsIgnoreCase(AppConstants.PARAMETER_COLOR_GREEN)) {
             binding.tvScanSubTitle.setTextColor(Color.GREEN);
         }
 

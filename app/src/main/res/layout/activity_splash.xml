@@ -13,7 +13,7 @@
             android:id="@+id/splash_image"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:contentDescription="Logo"
+            android:contentDescription="@string/content_description_logo"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

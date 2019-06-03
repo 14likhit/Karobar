@@ -8,6 +8,7 @@ import com.likhit.karobar.base.BaseActivity;
 import com.likhit.karobar.data.models.Scan;
 import com.likhit.karobar.data.models.VariableDetails;
 import com.likhit.karobar.databinding.ActivityScanDetailsBinding;
+import com.likhit.karobar.utils.AppConstants;
 
 public class ScanDetailsActivity extends BaseActivity implements ScanDetailsAdapter.ScanDetailsAdapterListener {
     private ActivityScanDetailsBinding binding;
@@ -24,7 +25,7 @@ public class ScanDetailsActivity extends BaseActivity implements ScanDetailsAdap
         setupToolbar("Karobar", true);
 
         if (getIntent().getExtras() != null) {
-            scanItem = (Scan) getIntent().getSerializableExtra("scan_activity");
+            scanItem = (Scan) getIntent().getSerializableExtra(AppConstants.BUNDLE_KEY_SCAN_ACTIVITY);
         }
 
         replaceFragment(ScanDetailsViewFragment.newInstance(scanItem), ScanDetailsViewFragment.TAG, false);

@@ -17,6 +17,7 @@ import com.likhit.karobar.R;
 import com.likhit.karobar.data.models.Criteria;
 import com.likhit.karobar.data.models.VariableDetails;
 import com.likhit.karobar.databinding.LayoutScanItemBinding;
+import com.likhit.karobar.utils.AppConstants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,10 +60,10 @@ public class ScanDetailsAdapter extends RecyclerView.Adapter<ScanDetailsAdapter.
             final List<String> variableValue = new ArrayList<>();
             for (int var = 0; var < variables.size(); var++) {
                 VariableDetails variableDetails = criteria.getVariable().get(variables.get(var));
-                if (variableDetails.getType().equalsIgnoreCase("indicator")) {
+                if (variableDetails.getType().equalsIgnoreCase(AppConstants.VARIABLE_KEY_INDICATOR)) {
                     variableValue.add(String.valueOf(variableDetails.getDefaultValue()));
                     spanText = placeValuetypeIndicator(variableDetails, variables.get(var), spanText);
-                } else if (variableDetails.getType().equalsIgnoreCase("value")) {
+                } else if (variableDetails.getType().equalsIgnoreCase(AppConstants.VARIABLE_KEY_VALUE)) {
                     variableValue.add(String.valueOf(variableDetails.getValues().get(0)));
                     spanText = placeValuetypeValue(variableDetails, variables.get(var), spanText);
                 }
@@ -81,10 +82,10 @@ public class ScanDetailsAdapter extends RecyclerView.Adapter<ScanDetailsAdapter.
                     public void onClick(@NonNull View widget) {
 //                        Toast.makeText(context, "Clicked", Toast.LENGTH_SHORT).show();
                         VariableDetails variableDetails = criteria.getVariable().get(variables.get(finalPt));
-                        if (variableDetails.getType().equalsIgnoreCase("indicator")) {
+                        if (variableDetails.getType().equalsIgnoreCase(AppConstants.VARIABLE_KEY_INDICATOR)) {
                             listener.launchScanDetailsEdit(variableDetails);
 
-                        } else if (variableDetails.getType().equalsIgnoreCase("value")) {
+                        } else if (variableDetails.getType().equalsIgnoreCase(AppConstants.VARIABLE_KEY_VALUE)) {
                             listener.launchScanDetailsEdit(variableDetails);
                         }
                     }
