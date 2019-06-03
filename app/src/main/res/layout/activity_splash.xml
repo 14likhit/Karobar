@@ -19,19 +19,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_bullet_24dp" />
+            app:srcCompat="@drawable/karobar" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="Vichar"
-            android:textColor="@android:color/black"
-            android:textSize="36dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/splash_image"
-            app:layout_constraintStart_toStartOf="@+id/splash_image"
-            app:layout_constraintTop_toBottomOf="@+id/splash_image" />
 
         <ProgressBar
             android:id="@+id/pbProgress"
