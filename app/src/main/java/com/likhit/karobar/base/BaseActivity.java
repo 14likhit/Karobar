@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -85,6 +87,16 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         if (getCurrentFragment() == null || !getCurrentFragment().onBackPressed()) {
             super.onBackPressed();
         }
+    }
+
+    // Fragment Related
+    protected void replaceFragment(Fragment fragment, String tag, boolean addToBackStack) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.container, fragment, tag);
+        if (addToBackStack) {
+            transaction.addToBackStack(tag);
+        }
+        transaction.commit();
     }
 
 

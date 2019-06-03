@@ -2,9 +2,11 @@ package com.likhit.karobar.data.models;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
-public class VariableDetails {
+public class VariableDetails implements Serializable {
 
     @SerializedName("type")
     private String type;
@@ -25,9 +27,9 @@ public class VariableDetails {
     private Integer defaultValue;
 
     @SerializedName("values")
-    private List<Integer> values;
+    private ArrayList<Float> values;
 
-    public VariableDetails(String type, List<Integer> values) {
+    public VariableDetails(String type, ArrayList<Float> values) {
         this.type = type;
         this.values = values;
     }
@@ -49,11 +51,11 @@ public class VariableDetails {
         this.type = type;
     }
 
-    public List<Integer> getValues() {
+    public List<Float> getValues() {
         return values;
     }
 
-    public void setValues(List<Integer> values) {
+    public void setValues(ArrayList<Float> values) {
         this.values = values;
     }
 

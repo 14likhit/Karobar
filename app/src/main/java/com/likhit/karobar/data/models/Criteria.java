@@ -2,7 +2,10 @@ package com.likhit.karobar.data.models;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Criteria {
+import java.io.Serializable;
+import java.util.HashMap;
+
+public class Criteria implements Serializable {
 
     @SerializedName("type")
     private String type;
@@ -11,9 +14,9 @@ public class Criteria {
     private String text;
 
     @SerializedName("variable")
-    private Variable variable;
+    private HashMap<String,VariableDetails> variable;
 
-    public Criteria(String type, String text, Variable variable) {
+    public Criteria(String type, String text, HashMap<String,VariableDetails> variable) {
         this.type = type;
         this.text = text;
         this.variable = variable;
@@ -35,11 +38,11 @@ public class Criteria {
         this.text = text;
     }
 
-    public Variable getVariable() {
+    public HashMap<String,VariableDetails> getVariable() {
         return variable;
     }
 
-    public void setVariable(Variable variable) {
+    public void setVariable(HashMap<String,VariableDetails> variable) {
         this.variable = variable;
     }
 }

@@ -2,9 +2,10 @@ package com.likhit.karobar.data.models;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Scan {
+public class Scan implements Serializable {
 
     @SerializedName("id")
     private Integer id;
